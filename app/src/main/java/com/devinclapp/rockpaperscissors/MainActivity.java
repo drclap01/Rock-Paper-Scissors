@@ -4,13 +4,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String TAG = "Rock, Paper, Scissors";
+    public static final String PLAYER_CHOICE = "com.devinclapp.rock_paper_scissors.player.choice";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageButton rock = (ImageButton)findViewById(R.id.btnRock);
+        rock.setOnClickListener(this);
+        ImageButton paper = (ImageButton)findViewById(R.id.btnPaper);
+        paper.setOnClickListener(this);
+        ImageButton scissors = (ImageButton)findViewById(R.id.btnScissors);
+        scissors.setOnClickListener(this);
     }
 
     @Override
@@ -34,4 +48,16 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+    /*
+    @Override
+    public void onClick(View v) {
+        //adds animation to the click
+        final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
+        v.startAnimation(animAlpha);
+    } */
 }
